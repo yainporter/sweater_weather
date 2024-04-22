@@ -34,3 +34,5 @@
 
 echo coverage >> .gitignore
 
+coverage/index.html
+spec/fixtures/

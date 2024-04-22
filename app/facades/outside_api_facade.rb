@@ -1,10 +1,13 @@
 class OutsideApiFacade
-  attr_reader :lat_lng, :weather_data, :current_weather
+  attr_reader :lat_lng, :current_weather
 
   def initialize
-    @service = OutsideApiService.new
+    @service = service
     @lat_lng = nil
-    @weather_data = nil
+  end
+
+  def service
+    @service ||= OutsideApiService.new
   end
 
   def find_lat_lng(location)
@@ -18,22 +21,22 @@ class OutsideApiFacade
   end
 
   def current_weather
-    CurrentWeather.new(@weather_data[:current])
+    CurrentWeather.new(weather_data[:current])
   end
 
   def daily_weather
-    @weather_data[:forecast][:forecastday].map do |daily_weather_data|
+    weather_data[:forecast][:forecastday].map do |daily_weather_data|
       DailyWeather.new(daily_weather_data)
     end
   end
 
   def hourly_weather
-    @weather_data[:forecast][:forecastday].first[:hour].map do |hourly_data|
+    weather_data[:forecast][:forecastday].first[:hour].map do |hourly_data|
       HourlyWeather.new(hourly_data)
     end
   end
 
   def weather_data
-    @weather_data = @service.get_weather(@lat_lng)
+    @service.get_weather(@lat_lng)
   end
 end

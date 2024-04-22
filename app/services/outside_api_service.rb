@@ -22,7 +22,7 @@ class OutsideApiService
   end
 
   def get_weather(lat_lng)
-    response = weather_conn.get("forecast.json?q=#{lat_lng}")
+    response = weather_conn.get("forecast.json?q=#{lat_lng}&days=5")
     response.body
   end
 end
