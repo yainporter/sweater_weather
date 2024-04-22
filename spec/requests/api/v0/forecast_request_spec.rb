@@ -8,7 +8,7 @@ RSpec.describe "Forecast Requests" do
         get "http://localhost:3000/api/v0/forecast?location=cincinatti,oh"
 
         expect(response).to be_successful
-
+        expect(response.status).to eq(200)
         forecast = JSON.parse(response.body, symbolize_names: true)
 
         data_keys = [:id, :type, :attributes]
@@ -22,6 +22,18 @@ RSpec.describe "Forecast Requests" do
         expect(forecast[:data][:attributes][:daily_weather].count).to eq(5)
         expect(forecast[:data][:attributes][:hourly_weather]).to be_an(Array)
         expect(forecast[:data][:attributes][:hourly_weather].count).to eq(24)
+      end
+    end
+
+    describe "no location passed" do
+      it "returns a 400 error", :vcr do
+        get "http://localhost:3000/api/v0/forecast"
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(400)
+        data = JSON.parse(response.body, symbolize_names: true)
+
+        expect(data[:errors].first[:detail]).to eq("No location provided")
       end
     end
   end
