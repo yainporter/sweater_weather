@@ -10,45 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_22_042059) do
+ActiveRecord::Schema[7.1].define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "current_weathers", force: :cascade do |t|
-    t.float "temperature"
-    t.float "feels_like"
-    t.float "humidity"
-    t.float "visibility"
-    t.string "condition"
-    t.string "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "daily_weathers", force: :cascade do |t|
-    t.string "date"
-    t.string "sunrise"
-    t.string "sunset"
-    t.float "max_temp"
-    t.float "min_temp"
-    t.string "condition"
-    t.string "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "forecasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "hourly_weathers", force: :cascade do |t|
-    t.string "time"
-    t.float "temperature"
-    t.string "conditions"
-    t.string "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

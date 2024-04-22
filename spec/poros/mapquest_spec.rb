@@ -15,8 +15,8 @@ RSpec.describe Mapquest do
       }
       phoenix = Mapquest.new(data)
 
-      expect(phoenix.lat).to eq(33.44825)
-      expect(phoenix.lon).to eq(-112.0758)
+      expect(phoenix.lat).to eq("33.44825")
+      expect(phoenix.lon).to eq("-112.0758")
     end
   end
 end
