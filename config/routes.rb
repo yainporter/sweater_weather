@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v0 do
-      resources :current_weathers
-      resources :daily_weathers
-      resources :hourly_weathers
+      resources :forecasts, only: :index
     end
   end
 

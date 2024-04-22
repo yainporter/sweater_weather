@@ -1,0 +1,198 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=JSENcWe9ugwTd2jXXCmEXZHAbc0r7BuR&location=phoenix
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Apr 2024 05:16:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '796'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - 7bea9f60-0067-11ef-b6d7-ebc0802ca241
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"31c-uNuGdVjuLG8/600sTFt7/967XQM"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiJwaG9lbml4In0sImxvY2F0aW9ucyI6W3sic3RyZWV0IjoiIiwiYWRtaW5BcmVhNiI6IiIsImFkbWluQXJlYTZUeXBlIjoiTmVpZ2hib3Job29kIiwiYWRtaW5BcmVhNSI6IlBob2VuaXgiLCJhZG1pbkFyZWE1VHlwZSI6IkNpdHkiLCJhZG1pbkFyZWE0IjoiTWFyaWNvcGEiLCJhZG1pbkFyZWE0VHlwZSI6IkNvdW50eSIsImFkbWluQXJlYTMiOiJBWiIsImFkbWluQXJlYTNUeXBlIjoiU3RhdGUiLCJhZG1pbkFyZWExIjoiVVMiLCJhZG1pbkFyZWExVHlwZSI6IkNvdW50cnkiLCJwb3N0YWxDb2RlIjoiIiwiZ2VvY29kZVF1YWxpdHlDb2RlIjoiQTVYQVgiLCJnZW9jb2RlUXVhbGl0eSI6IkNJVFkiLCJkcmFnUG9pbnQiOmZhbHNlLCJzaWRlT2ZTdHJlZXQiOiJOIiwibGlua0lkIjoiMCIsInVua25vd25JbnB1dCI6IiIsInR5cGUiOiJzIiwibGF0TG5nIjp7ImxhdCI6MzMuNDQ4MjUsImxuZyI6LTExMi4wNzU4fSwiZGlzcGxheUxhdExuZyI6eyJsYXQiOjMzLjQ0ODI1LCJsbmciOi0xMTIuMDc1OH0sIm1hcFVybCI6IiJ9XX1dfQ==
+  recorded_at: Mon, 22 Apr 2024 05:16:33 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=JSENcWe9ugwTd2jXXCmEXZHAbc0r7BuR&location=phoenix
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Apr 2024 05:16:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '796'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - 808c8920-0067-11ef-9e28-0da246a16d8a
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"31c-uNuGdVjuLG8/600sTFt7/967XQM"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiJwaG9lbml4In0sImxvY2F0aW9ucyI6W3sic3RyZWV0IjoiIiwiYWRtaW5BcmVhNiI6IiIsImFkbWluQXJlYTZUeXBlIjoiTmVpZ2hib3Job29kIiwiYWRtaW5BcmVhNSI6IlBob2VuaXgiLCJhZG1pbkFyZWE1VHlwZSI6IkNpdHkiLCJhZG1pbkFyZWE0IjoiTWFyaWNvcGEiLCJhZG1pbkFyZWE0VHlwZSI6IkNvdW50eSIsImFkbWluQXJlYTMiOiJBWiIsImFkbWluQXJlYTNUeXBlIjoiU3RhdGUiLCJhZG1pbkFyZWExIjoiVVMiLCJhZG1pbkFyZWExVHlwZSI6IkNvdW50cnkiLCJwb3N0YWxDb2RlIjoiIiwiZ2VvY29kZVF1YWxpdHlDb2RlIjoiQTVYQVgiLCJnZW9jb2RlUXVhbGl0eSI6IkNJVFkiLCJkcmFnUG9pbnQiOmZhbHNlLCJzaWRlT2ZTdHJlZXQiOiJOIiwibGlua0lkIjoiMCIsInVua25vd25JbnB1dCI6IiIsInR5cGUiOiJzIiwibGF0TG5nIjp7ImxhdCI6MzMuNDQ4MjUsImxuZyI6LTExMi4wNzU4fSwiZGlzcGxheUxhdExuZyI6eyJsYXQiOjMzLjQ0ODI1LCJsbmciOi0xMTIuMDc1OH0sIm1hcFVybCI6IiJ9XX1dfQ==
+  recorded_at: Mon, 22 Apr 2024 05:16:41 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=JSENcWe9ugwTd2jXXCmEXZHAbc0r7BuR&location=123432
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Apr 2024 05:18:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - b5205040-0067-11ef-9ec4-f78d917d57da
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"29b-ht/IWgeX8Df0pjtoj0EeFISXWhY"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiIxMjM0MzIifSwibG9jYXRpb25zIjpbeyJzdHJlZXQiOiIiLCJhZG1pbkFyZWE2IjoiIiwiYWRtaW5BcmVhNSI6IiIsImFkbWluQXJlYTQiOiIiLCJhZG1pbkFyZWEzIjoiIiwiYWRtaW5BcmVhMSI6IlVTIiwicG9zdGFsQ29kZSI6IiIsImdlb2NvZGVRdWFsaXR5Q29kZSI6IkExWEFYIiwiZ2VvY29kZVF1YWxpdHkiOiJDT1VOVFJZIiwiZHJhZ1BvaW50IjpmYWxzZSwic2lkZU9mU3RyZWV0IjoiTiIsImxpbmtJZCI6IjAiLCJ1bmtub3duSW5wdXQiOiIiLCJ0eXBlIjoicyIsImxhdExuZyI6eyJsYXQiOjM4Ljg5MDM3LCJsbmciOi03Ny4wMzE5Nn0sImRpc3BsYXlMYXRMbmciOnsibGF0IjozOC44OTAzNywibG5nIjotNzcuMDMxOTZ9LCJtYXBVcmwiOiIiLCJzb3VyY2UiOiJGQUxMQkFDSyJ9XX1dfQ==
+  recorded_at: Mon, 22 Apr 2024 05:18:09 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=JSENcWe9ugwTd2jXXCmEXZHAbc0r7BuR&location=123432
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Apr 2024 05:18:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - bac85f60-0067-11ef-9ec4-f78d917d57da
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"29b-ht/IWgeX8Df0pjtoj0EeFISXWhY"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiIxMjM0MzIifSwibG9jYXRpb25zIjpbeyJzdHJlZXQiOiIiLCJhZG1pbkFyZWE2IjoiIiwiYWRtaW5BcmVhNSI6IiIsImFkbWluQXJlYTQiOiIiLCJhZG1pbkFyZWEzIjoiIiwiYWRtaW5BcmVhMSI6IlVTIiwicG9zdGFsQ29kZSI6IiIsImdlb2NvZGVRdWFsaXR5Q29kZSI6IkExWEFYIiwiZ2VvY29kZVF1YWxpdHkiOiJDT1VOVFJZIiwiZHJhZ1BvaW50IjpmYWxzZSwic2lkZU9mU3RyZWV0IjoiTiIsImxpbmtJZCI6IjAiLCJ1bmtub3duSW5wdXQiOiIiLCJ0eXBlIjoicyIsImxhdExuZyI6eyJsYXQiOjM4Ljg5MDM3LCJsbmciOi03Ny4wMzE5Nn0sImRpc3BsYXlMYXRMbmciOnsibGF0IjozOC44OTAzNywibG5nIjotNzcuMDMxOTZ9LCJtYXBVcmwiOiIiLCJzb3VyY2UiOiJGQUxMQkFDSyJ9XX1dfQ==
+  recorded_at: Mon, 22 Apr 2024 05:18:18 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=JSENcWe9ugwTd2jXXCmEXZHAbc0r7BuR&location=sdfkjnsdf%3Bsdnf%3Bsd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Apr 2024 05:18:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '678'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - MapQuest
+      X-Request-Id:
+      - ce366ec0-0067-11ef-9e28-0da246a16d8a
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"2a6-SHm8erYpH9D56ldEgmmXJFhytn0"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpbmZvIjp7InN0YXR1c2NvZGUiOjAsImNvcHlyaWdodCI6eyJ0ZXh0IjoiwqkgMjAyNCBNYXBRdWVzdCwgSW5jLiIsImltYWdlVXJsIjoiaHR0cDovL2FwaS5tcWNkbi5jb20vcmVzL21xbG9nby5naWYiLCJpbWFnZUFsdFRleHQiOiLCqSAyMDI0IE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbXX0sIm9wdGlvbnMiOnsibWF4UmVzdWx0cyI6LTEsImlnbm9yZUxhdExuZ0lucHV0IjpmYWxzZX0sInJlc3VsdHMiOlt7InByb3ZpZGVkTG9jYXRpb24iOnsibG9jYXRpb24iOiJzZGZram5zZGY7c2RuZjtzZCJ9LCJsb2NhdGlvbnMiOlt7InN0cmVldCI6IiIsImFkbWluQXJlYTYiOiIiLCJhZG1pbkFyZWE1IjoiIiwiYWRtaW5BcmVhNCI6IiIsImFkbWluQXJlYTMiOiIiLCJhZG1pbkFyZWExIjoiVVMiLCJwb3N0YWxDb2RlIjoiIiwiZ2VvY29kZVF1YWxpdHlDb2RlIjoiQTFYQVgiLCJnZW9jb2RlUXVhbGl0eSI6IkNPVU5UUlkiLCJkcmFnUG9pbnQiOmZhbHNlLCJzaWRlT2ZTdHJlZXQiOiJOIiwibGlua0lkIjoiMCIsInVua25vd25JbnB1dCI6IiIsInR5cGUiOiJzIiwibGF0TG5nIjp7ImxhdCI6MzguODkwMzcsImxuZyI6LTc3LjAzMTk2fSwiZGlzcGxheUxhdExuZyI6eyJsYXQiOjM4Ljg5MDM3LCJsbmciOi03Ny4wMzE5Nn0sIm1hcFVybCI6IiIsInNvdXJjZSI6IkZBTExCQUNLIn1dfV19
+  recorded_at: Mon, 22 Apr 2024 05:18:51 GMT
+recorded_with: VCR 6.2.0
