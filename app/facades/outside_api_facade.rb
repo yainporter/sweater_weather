@@ -17,22 +17,38 @@ class OutsideApiFacade
   end
 
   def create_forecast
-    Forecast.new(current_weather, daily_weather, hourly_weather)
+    if weather_data[:error].present?
+      "Location parameters are missing"
+    else
+      Forecast.new(current_weather, daily_weather, hourly_weather)
+    end
   end
 
   def current_weather
-    CurrentWeather.new(weather_data[:current])
+    begin
+      CurrentWeather.new(weather_data[:current])
+    rescue NoMethodError
+      weather_data[:error][:message]
+    end
   end
 
   def daily_weather
-    weather_data[:forecast][:forecastday].map do |daily_weather_data|
-      DailyWeather.new(daily_weather_data)
+    begin
+      weather_data[:forecast][:forecastday].map do |daily_weather_data|
+        DailyWeather.new(daily_weather_data)
+      end
+    rescue NoMethodError
+      weather_data[:error][:message]
     end
   end
 
   def hourly_weather
-    weather_data[:forecast][:forecastday].first[:hour].map do |hourly_data|
-      HourlyWeather.new(hourly_data)
+    begin
+      weather_data[:forecast][:forecastday].first[:hour].map do |hourly_data|
+        HourlyWeather.new(hourly_data)
+      end
+    rescue NoMethodError
+      weather_data[:error][:message]
     end
   end
 

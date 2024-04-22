@@ -26,6 +26,15 @@ RSpec.describe OutsideApiFacade do
         expect(weather_facade_data).to eq(facade.weather_data)
       end
     end
+
+    describe "error" do
+      it "returns an error message when no lat and lng are passed", :vcr do
+        weather_facade_data = facade.weather_data
+
+        expect(weather_facade_data).to be_a(Hash)
+        expect(weather_facade_data).to eq({:error=>{:code=>1003, :message=>"Parameter q is missing."}})
+      end
+    end
   end
 
   let(:weather_facade_data) { facade.weather_data }
@@ -43,6 +52,13 @@ RSpec.describe OutsideApiFacade do
         end
       end
     end
+
+    describe "error" do
+      it "returns an error message when no lat and lng are passed", :vcr do
+        daily_weather = facade.daily_weather
+        expect(daily_weather).to eq("Parameter q is missing.")
+      end
+    end
   end
 
   describe "current_weather" do
@@ -53,6 +69,14 @@ RSpec.describe OutsideApiFacade do
         current_weather = facade.current_weather
 
         expect(current_weather).to be_a(CurrentWeather)
+      end
+    end
+
+    describe "error" do
+      it "returns an error message when no lat and lng are passed", :vcr do
+        current_weather = facade.current_weather
+
+        expect(current_weather).to eq("Parameter q is missing.")
       end
     end
   end
@@ -72,6 +96,14 @@ RSpec.describe OutsideApiFacade do
         end
       end
     end
+
+    describe "error" do
+      it "returns an error message when no lat and lng are passed", :vcr do
+        hourly_weather = facade.hourly_weather
+
+        expect(hourly_weather).to eq("Parameter q is missing.")
+      end
+    end
   end
 
   describe "#forecast" do
@@ -80,7 +112,18 @@ RSpec.describe OutsideApiFacade do
         lat_lng
         weather_facade_data
 
-        expect(facade.create_forecast).to be_a(Forecast)
+        forecast = facade.create_forecast
+
+        expect(forecast).to be_a(Forecast)
+      end
+    end
+
+    describe "error" do
+      it "returns an error message", :vcr do
+        forecast = facade.create_forecast
+
+        expect(forecast).to_not be_a(Forecast)
+        expect(forecast).to eq("Location parameters are missing")
       end
     end
   end
