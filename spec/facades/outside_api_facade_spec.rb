@@ -135,16 +135,17 @@ RSpec.describe OutsideApiFacade do
   end
 
   let(:yelp_facade) { OutsideApiFacade.new("Pueblo, CO", "italian")}
+
   describe "#create_munchie" do
     it "creates a munchie poro", :vcr do
-      munchie = facade.create_munchie
+      munchie = yelp_facade.create_munchie
       expect(munchie).to be_a(Munchie)
     end
   end
 
   describe "create_restaurant" do
     it "creates the most reviewed restaurant from the location and type", :vcr do
-      restaurant = facade.create_restaurant
+      restaurant = yelp_facade.create_restaurant
       expect(restaurant).to be_a(Restaurant)
     end
   end

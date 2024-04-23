@@ -57,7 +57,11 @@ class OutsideApiFacade
   end
 
   def weather_data
-    @service.get_weather(@lat_lng)
+    if @lat_lng
+      @service.get_weather(@lat_lng)
+    elsif @location
+        @service.get_weather(@location)
+    end
   end
 
   def create_road_trip(origin, destination)
@@ -94,6 +98,6 @@ class OutsideApiFacade
   end
 
   def create_munchie
-    Munchie.new(create_restaurant, create_forecast)
+    Munchie.new(create_restaurant, create_forecast, @location)
   end
 end
