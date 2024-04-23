@@ -112,7 +112,11 @@ RSpec.describe OutsideApiService do
       expect(data[:businesses].count).to eq(20)
       expect(data[:businesses].first.keys).to eq(business_keys)
 
+      # If I had more time, I'd test with with some method that iterates over the business array and checks that previous review_count is > current
       expect(data[:businesses].first[:name]).to eq("Brues Alehouse")
+      expect(data[:businesses].first[:review_count]).to eq(566)
+      expect(data[:businesses].second[:name]).to eq("Bingo Burger")
+      expect(data[:businesses].second[:review_count]).to eq(541)
     end
   end
 end

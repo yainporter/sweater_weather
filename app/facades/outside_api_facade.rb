@@ -81,6 +81,9 @@ class OutsideApiFacade
       travel_time: travel_time,
       weather_at_eta: weather_data
     }
+  end
 
+  def create_restaurant(location, category)
+    @service.get_yelp_restaurants(location, category)
   end
 end

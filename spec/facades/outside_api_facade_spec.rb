@@ -141,10 +141,17 @@ RSpec.describe OutsideApiFacade do
     end
   end
 
-  describe "find_restaurant" do
+  describe "create_restaurant" do
     it "creates the most reviewed restaurant from the location and type", :vcr do
       restaurant = facade.find_restaurant
       expect(restaurant).to be_a(Restaurant)
+    end
+  end
+
+  describe "yelp_data" do
+    it "stores the yelp data from the service call", :vcr do
+      data = facade.yelp_data(location, category)
+
     end
   end
 end
