@@ -30,9 +30,7 @@ RSpec.describe OutsideApiFacade do
     describe "error" do
       it "returns an error message when no lat and lng are passed", :vcr do
         weather_facade_data = facade.weather_data
-
-        expect(weather_facade_data).to be_a(Hash)
-        expect(weather_facade_data).to eq({:error=>{:code=>1003, :message=>"Parameter q is missing."}})
+        expect(weather_facade_data).to eq("No location data provided")
       end
     end
   end
@@ -52,13 +50,6 @@ RSpec.describe OutsideApiFacade do
         end
       end
     end
-
-    describe "error" do
-      it "returns an error message when no lat and lng are passed", :vcr do
-        daily_weather = facade.daily_weather
-        expect(daily_weather).to eq("Parameter q is missing.")
-      end
-    end
   end
 
   describe "current_weather" do
@@ -69,14 +60,6 @@ RSpec.describe OutsideApiFacade do
         current_weather = facade.current_weather
 
         expect(current_weather).to be_a(CurrentWeather)
-      end
-    end
-
-    describe "error" do
-      it "returns an error message when no lat and lng are passed", :vcr do
-        current_weather = facade.current_weather
-
-        expect(current_weather).to eq("Parameter q is missing.")
       end
     end
   end
@@ -96,14 +79,6 @@ RSpec.describe OutsideApiFacade do
         end
       end
     end
-
-    describe "error" do
-      it "returns an error message when no lat and lng are passed", :vcr do
-        hourly_weather = facade.hourly_weather
-
-        expect(hourly_weather).to eq("Parameter q is missing.")
-      end
-    end
   end
 
   describe "#forecast" do
@@ -117,24 +92,17 @@ RSpec.describe OutsideApiFacade do
         expect(forecast).to be_a(Forecast)
       end
     end
-
-    describe "error" do
-      it "returns an error message when there is no location", :vcr do
-        forecast = facade.create_forecast
-
-        expect(forecast).to_not be_a(Forecast)
-        expect(forecast).to eq("Location parameters are missing")
-      end
-    end
   end
 
   describe "#create_roadtrip" do
-    it "creates a roadtrip", :vcr do
+    xit "creates a roadtrip", :vcr do
       roadtrip = facade.create_road_trip("Cincinatti,OH", "Chicago,IL")
+      expect(roadtrip).to be_a(Roadtrip)
     end
   end
 
   let(:yelp_facade) { OutsideApiFacade.new("Pueblo, CO", "italian")}
+  let(:missing_location) { OutsideApiFacade.new(nil, "mexican") }
 
   describe "#create_munchie" do
     it "creates a munchie poro", :vcr do

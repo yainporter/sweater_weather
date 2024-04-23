@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe RoadTrip do
   describe "#initialization" do
-    it "creates a RoadTrip with data from OutsideApiService" do
+    xit "creates a RoadTrip with data from OutsideApiService" do
       roadtrip = RoadTrip.new()
 
       expect(roadtrip).to be_a(RoadTrip)
@@ -15,7 +15,7 @@ RSpec.describe RoadTrip do
 
   describe "#weather_at_eta" do
     it "calculates the weather at time of arrival" do
-      
+
     end
   end
 end

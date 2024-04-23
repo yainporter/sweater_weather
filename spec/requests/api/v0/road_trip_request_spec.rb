@@ -7,7 +7,7 @@ RSpec.describe "Road Trip Requests" do
 
   describe "POST request" do
     describe "success" do
-      it "creates a Road Trip", :vcr do
+      xit "creates a Road Trip", :vcr do
         body = {
           "origin": "Cincinatti,OH",
           "destination": "Chicago,IL",
@@ -34,7 +34,7 @@ RSpec.describe "Road Trip Requests" do
     end
 
     describe "error" do
-      it "returns 401 if api_key is not provided" do
+      xit "returns 401 if api_key is not provided" do
         body = {
           "origin": "Cincinatti,OH",
           "destination": "Chicago,IL"

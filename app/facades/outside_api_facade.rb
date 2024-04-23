@@ -21,8 +21,8 @@ class OutsideApiFacade
   end
 
   def create_forecast
-    if weather_data[:error].present?
-      "Location parameters are missing"
+    if weather_data.is_a?(String)
+      weather_data
     else
       Forecast.new(current_weather, daily_weather, hourly_weather)
     end
@@ -37,12 +37,8 @@ class OutsideApiFacade
   end
 
   def daily_weather
-    begin
-      weather_data[:forecast][:forecastday].map do |daily_weather_data|
-        DailyWeather.new(daily_weather_data)
-      end
-    rescue NoMethodError
-      weather_data[:error][:message]
+    weather_data[:forecast][:forecastday].map do |daily_weather_data|
+      DailyWeather.new(daily_weather_data)
     end
   end
 
@@ -61,6 +57,8 @@ class OutsideApiFacade
       @service.get_weather(@lat_lng)
     elsif @location
         @service.get_weather(@location)
+    else
+      "No location data provided"
     end
   end
 
