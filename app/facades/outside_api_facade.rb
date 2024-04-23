@@ -1,11 +1,13 @@
 class OutsideApiFacade
   attr_reader :lat_lng, :current_weather
 
-  def initialize
+  def initialize(location = nil, category = nil)
     @service = service
     @lat_lng = nil
     @origin = nil
     @destination = nil
+    @location = location
+    @category = category
   end
 
   def service
@@ -83,7 +85,15 @@ class OutsideApiFacade
     }
   end
 
-  def create_restaurant(location, category)
-    @service.get_yelp_restaurants(location, category)
+  def create_restaurant
+    Restaurant.new(restaurant_data)
+  end
+
+  def restaurant_data
+    @service.get_yelp_restaurants(@location, @category)
+  end
+
+  def create_munchie
+    Munchie.new(create_restaurant, create_forecast)
   end
 end

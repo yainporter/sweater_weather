@@ -1,4 +1,4 @@
-class YelpFacade
+class YelpFacade < OutsideApiFacade
   attr_reader :location, :category, :restaurant_data, :weather_data, :service
 
   def initialize(location, category)
@@ -14,15 +14,11 @@ class YelpFacade
   end
 
   def set_weather_data
-    @weather_data
+    @weather_data = @service.get_weather(@location)
   end
 
   def create_restaurant
-    Restaruant.new(@restaurant_data)
-  end
-
-  def create_weather
-    Weather.new(@weather_data)
+    Restaurant.new(set_restaurant_data)
   end
 
   def create_munchie

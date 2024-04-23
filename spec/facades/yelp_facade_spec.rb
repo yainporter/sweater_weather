@@ -56,4 +56,43 @@ RSpec.describe YelpFacade do
       expect(yelp_facade.restaurant_data[:businesses].first.keys).to eq(business_keys)
     end
   end
+
+  describe "set_weather_data" do
+    it "fetches weather data from the weather API", :vcr do
+      yelp_facade.set_weather_data
+      data_keys = [:location, :current, :forecast]
+      current_weather_keys = [
+                              :last_updated_epoch,
+                              :last_updated,
+                              :temp_c,
+                              :temp_f,
+                              :is_day,
+                              :condition,
+                              :wind_mph,
+                              :wind_kph,
+                              :wind_degree,
+                              :wind_dir,
+                              :pressure_mb,
+                              :pressure_in,
+                              :precip_mm,
+                              :precip_in,
+                              :humidity,
+                              :cloud,
+                              :feelslike_c,
+                              :feelslike_f,
+                              :vis_km,
+                              :vis_miles,
+                              :uv,
+                              :gust_mph,
+                              :gust_kph
+                            ]
+      forecastday_keys = [:date, :date_epoch, :day, :astro, :hour]
+      expect(yelp_facade.weather_data).to be_a(Hash)
+      expect(yelp_facade.weather_data.keys).to eq(data_keys)
+      expect(yelp_facade.weather_data[:current].keys).to eq(current_weather_keys)
+      expect(yelp_facade.weather_data[:current][:temp_f]).to be_a(Float)
+      expect(yelp_facade.weather_data[:forecast][:forecastday].first.keys).to eq(forecastday_keys)
+      expect(yelp_facade.weather_data[:forecast][:forecastday].first[:day][:condition][:text]).to be_a(String)
+    end
+  end
 end

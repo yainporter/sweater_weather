@@ -134,6 +134,7 @@ RSpec.describe OutsideApiFacade do
     end
   end
 
+  let(:yelp_facade) { OutsideApiFacade.new("Pueblo, CO", "italian")}
   describe "#create_munchie" do
     it "creates a munchie poro", :vcr do
       munchie = facade.create_munchie
@@ -143,15 +144,53 @@ RSpec.describe OutsideApiFacade do
 
   describe "create_restaurant" do
     it "creates the most reviewed restaurant from the location and type", :vcr do
-      restaurant = facade.find_restaurant
+      restaurant = facade.create_restaurant
       expect(restaurant).to be_a(Restaurant)
     end
   end
 
-  describe "yelp_data" do
-    it "stores the yelp data from the service call", :vcr do
-      data = facade.yelp_data(location, category)
+  describe "#create_munchie" do
+    it "creates a munchie poro", :vcr do
+      munchie = yelp_facade.create_munchie
+      expect(munchie).to be_a(Munchie)
+    end
+  end
 
+  describe "create_restaurant" do
+    it "creates the most reviewed restaurant from the location and type", :vcr do
+      restaurant = yelp_facade.create_restaurant
+      expect(restaurant).to be_a(Restaurant)
+    end
+  end
+
+  describe "restaurant_data" do
+    it "grabs yelp data from the service call", :vcr do
+      data_keys = [:businesses, :total, :region]
+      business_keys = [
+                        :id,
+                        :alias,
+                        :name,
+                        :image_url,
+                        :is_closed,
+                        :url,
+                        :review_count,
+                        :categories,
+                        :rating,
+                        :coordinates,
+                        :transactions,
+                        :price,
+                        :location,
+                        :phone,
+                        :display_phone,
+                        :distance,
+                        :attributes]
+
+      restaurant_data = yelp_facade.restaurant_data
+      expect(restaurant_data).to be_a(Hash)
+      expect(restaurant_data.keys).to eq(data_keys)
+      expect(restaurant_data[:businesses]).to be_an(Array)
+      expect(restaurant_data[:businesses].count).to eq(20)
+      expect(restaurant_data[:businesses].first.keys).to eq(business_keys)
     end
   end
 end
