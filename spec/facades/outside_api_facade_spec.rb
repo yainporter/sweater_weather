@@ -119,7 +119,7 @@ RSpec.describe OutsideApiFacade do
     end
 
     describe "error" do
-      it "returns an error message", :vcr do
+      it "returns an error message when there is no location", :vcr do
         forecast = facade.create_forecast
 
         expect(forecast).to_not be_a(Forecast)
