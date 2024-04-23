@@ -43,7 +43,7 @@ RSpec.describe "Forecast Requests" do
         expect(response.status).to eq(400)
         data = JSON.parse(response.body, symbolize_names: true)
 
-        expect(data[:errors].first[:detail]).to eq("No location provided")
+        expect(data[:errors].first[:detail]).to eq("Missing parameters, try again.")
       end
     end
   end

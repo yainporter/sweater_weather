@@ -25,5 +25,17 @@ RSpec.describe "Munchies Requests" do
         expect(data[:data][:attributes][:restaurant].keys).to eq(restaurant_keys)
       end
     end
+
+    describe "failure" do
+      it "returns 400 when no parameters are passed", :vcr do
+        get "/api/v1/munchies"
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(400)
+
+        data = JSON.parse(response.body, symbolize_names: true)
+        expect(data[:errors].first[:detail]).to eq("Missing parameters, try again.")
+      end
+    end
   end
 end

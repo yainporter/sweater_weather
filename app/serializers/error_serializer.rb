@@ -8,7 +8,7 @@ class ErrorSerializer
     {
       errors: [
         {
-          detail: "No location provided"
+          detail: "Missing parameters, try again."
         }
       ]
     }
