@@ -53,6 +53,42 @@ RSpec.describe "Users Requests" do
         expect(data[:errors].first[:status]).to eq(409)
         expect(data[:errors].first[:detail]).to eq("PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint \"index_users_on_email\"\nDETAIL:  Key (email)=(whatever@example.com) already exists.\n")
       end
+
+      it "returns 422 when fields are not present", :vcr do
+        post "http://localhost:3000/api/v0/users", headers: @headers, params: JSON.generate({
+          "password": "password",
+          "password_confirmation": "password"
+        })
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(422)
+
+        data = JSON.parse(response.body, symbolize_names: true)
+        expect(data[:errors].first[:status]).to eq(422)
+        expect(data[:errors].first[:detail]).to eq("Validation failed: Email can't be blank")
+
+        post "http://localhost:3000/api/v0/users", headers: @headers, params: JSON.generate({
+          "email": "test@test.test"
+        })
+
+        data = JSON.parse(response.body, symbolize_names: true)
+
+        expect(data[:errors].first[:detail]).to eq("Validation failed: Password can't be blank")
+      end
+
+      it "returns 422 when passwords don't match" do
+        post "http://localhost:3000/api/v0/users", headers: @headers, params: JSON.generate({
+          "email": "email@email.email",
+          "password": "password",
+          "password_confirmation": "pass"
+        })
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(422)
+        data = JSON.parse(response.body, symbolize_names: true)
+
+        expect(data[:errors].first[:detail]).to eq("Validation failed: Password confirmation doesn't match Password")
+      end
     end
   end
 end
