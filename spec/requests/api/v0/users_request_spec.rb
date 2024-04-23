@@ -23,6 +23,7 @@ RSpec.describe "Users Requests" do
         attribute_keys = [:email, :api_key]
 
         expect(user_data[:data].keys).to eq(user_data_keys)
+        expect(user_data[:data][:type]).to eq("user")
         expect(user_data[:data][:attributes].keys).to eq(attribute_keys)
         expect(user_data[:data][:attributes][:email]).to eq("whatever@example.com")
         expect(user_data[:data][:attributes][:api_key]).to be_a(String)

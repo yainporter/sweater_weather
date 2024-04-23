@@ -2,7 +2,7 @@ class UserSerializer
   include JSONAPI::Serializer
   attributes :email
 
-  attribute :api_key do |object|
+  attribute :api_key, if Proc. do |object|
     api_key = ApiKey.create(bearer: object)
     api_key.raw_token
   end
