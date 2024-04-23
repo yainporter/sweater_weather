@@ -5,7 +5,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
   def create
     user = User.create!(user_params)
-    user.api_keys.create(bearer: user)
     render json: UserSerializer.new(user), status: :created
   end
 

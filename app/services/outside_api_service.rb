@@ -25,4 +25,9 @@ class OutsideApiService
     response = weather_conn.get("forecast.json?q=#{lat_lng}&days=5")
     response.body
   end
+
+  def get_directions(from, to)
+    response = mapquest_conn.get("/directions/v2/route?from=#{from}&to=#{to}")
+    response.body
+  end
 end

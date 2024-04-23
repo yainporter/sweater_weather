@@ -127,4 +127,10 @@ RSpec.describe OutsideApiFacade do
       end
     end
   end
+
+  describe "#create_roadtrip" do
+    it "creates a roadtrip", :vcr do
+      roadtrip = facade.create_road_trip("Cincinatti,OH", "Chicago,IL")
+    end
+  end
 end

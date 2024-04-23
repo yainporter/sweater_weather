@@ -4,6 +4,8 @@ class OutsideApiFacade
   def initialize
     @service = service
     @lat_lng = nil
+    @origin = nil
+    @destination = nil
   end
 
   def service
@@ -54,5 +56,31 @@ class OutsideApiFacade
 
   def weather_data
     @service.get_weather(@lat_lng)
+  end
+
+  def create_road_trip(origin, destination)
+    set_origin_and_destination(origin, destination)
+    RoadTrip.new(road_trip_attributes)
+  end
+
+  def travel_time
+    find_lat_lng(@destination)
+    travel_time = @service.get_directions(@origin, @destination)
+    travel_time = travel_time[:route][:formattedTime]
+  end
+
+  def set_origin_and_destination(origin, destination)
+    @origin = origin
+    @destination = destination
+  end
+
+  def road_trip_attributes
+    {
+      start_city: @origin,
+      end_city: @destination,
+      travel_time: travel_time,
+      weather_at_eta: weather_data
+    }
+
   end
 end
