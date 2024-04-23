@@ -83,8 +83,8 @@ RSpec.describe OutsideApiService do
   end
 
   describe "#get_yelp_restaurants" do
-    it "returns data for a restaurant based on location", :vcr do
-      data = service.get_yelp_restaurants("Phoenix")
+    it "returns data for restaurants based on location and category", :vcr do
+      data = service.get_yelp_restaurants("Pueblo, CO", "italian")
 
       data_keys = [:businesses, :total, :region]
       business_keys = [
@@ -111,6 +111,8 @@ RSpec.describe OutsideApiService do
       expect(data[:businesses]).to be_an(Array)
       expect(data[:businesses].count).to eq(20)
       expect(data[:businesses].first.keys).to eq(business_keys)
+
+      expect(data[:businesses].first[:name]).to eq("Brues Alehouse")
     end
   end
 end

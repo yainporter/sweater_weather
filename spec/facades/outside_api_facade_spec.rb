@@ -133,4 +133,18 @@ RSpec.describe OutsideApiFacade do
       roadtrip = facade.create_road_trip("Cincinatti,OH", "Chicago,IL")
     end
   end
+
+  describe "#create_munchie" do
+    it "creates a munchie poro", :vcr do
+      munchie = facade.create_munchie
+      expect(munchie).to be_a(Munchie)
+    end
+  end
+
+  describe "find_restaurant" do
+    it "creates the most reviewed restaurant from the location and type", :vcr do
+      restaurant = facade.find_restaurant
+      expect(restaurant).to be_a(Restaurant)
+    end
+  end
 end

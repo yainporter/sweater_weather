@@ -25,14 +25,14 @@ class OutsideApiService
     end
   end
 
-  def get_yelp_restaurants(location)
-    response = yelp_conn.get("/v3/businesses/search?location=#{location}&sort_by=best_match&limit=20")
+  def get_yelp_restaurants(location, category)
+    response = yelp_conn.get("/v3/businesses/search?location=#{location}&food=#{category}&sort_by=review_count&limit=20")
     response.body
   end
 
   def get_lat_lng(location)
-      response = mapquest_conn.get("/geocoding/v1/address?location=#{location}")
-      response.body
+    response = mapquest_conn.get("/geocoding/v1/address?location=#{location}")
+    response.body
   end
 
 
