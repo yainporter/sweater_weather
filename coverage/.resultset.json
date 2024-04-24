@@ -326,44 +326,6 @@
           null
         ]
       },
-      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/spec/models/api_key_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/api_key.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/yainporter/turing_work/3mod/projects/sweater_weather/spec/models/user_spec.rb": {
         "lines": [
 
@@ -521,8 +483,8 @@
           1,
           null,
           1,
-          9,
-          9,
+          10,
+          10,
           null,
           null
         ]
@@ -872,7 +834,31 @@
           null,
           1,
           1,
+          2,
+          null,
           1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           1,
           1,
@@ -889,10 +875,11 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null
@@ -1219,22 +1206,22 @@
           1,
           null,
           1,
+          8,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
           7,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          6,
           null,
           null,
           null,
@@ -1255,13 +1242,20 @@
           1,
           null,
           1,
-          6,
-          6,
+          7,
+          7,
           null,
           null,
           1,
-          6,
+          7,
           null,
+          null
+        ]
+      },
+      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -1313,15 +1307,18 @@
       "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/controllers/api/v0/sessions_controller.rb": {
         "lines": [
           1,
+          null,
+          1,
+          2,
           1,
           null,
           1,
-          1,
           null,
           null,
+          null,
           1,
-          1,
-          1,
+          2,
+          2,
           null,
           null
         ]
@@ -1365,6 +1362,6 @@
         ]
       }
     },
-    "timestamp": 1713931304
+    "timestamp": 1713932170
   }
 }
