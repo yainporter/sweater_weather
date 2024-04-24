@@ -41,8 +41,6 @@ class OutsideApiFacade
       @weather_data = @service.get_weather(@lat_lng)
     elsif @location
       @weather_data = @service.get_weather(@location)
-    else
-      "No location data provided"
     end
   end
 
