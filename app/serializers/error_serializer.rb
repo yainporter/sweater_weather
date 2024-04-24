@@ -8,7 +8,8 @@ class ErrorSerializer
     {
       errors: [
         {
-          detail: "Missing parameters, try again."
+          status: 400,
+          detail: "Invalid parameters, try again."
         }
       ]
     }

@@ -1,4 +1,5 @@
 class Api::V0::SessionsController < ApplicationController
+  before_action :authenticate_api_key
 
   def create
     if valid_user?
@@ -9,7 +10,6 @@ class Api::V0::SessionsController < ApplicationController
   end
 
   def valid_user?
-    @user = User.find_by(email: params[:email])
     @user.authenticate(params[:password])
   end
 end

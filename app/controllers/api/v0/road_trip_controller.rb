@@ -16,14 +16,4 @@ class Api::V0::RoadTripController < ApplicationController
   def road_trip_params
     params.require(:road_trip).permit(:origin, :destination)
   end
-
-  def authenticate_api_key
-    begin
-      api_key = params[:api_key]
-      hashed_key = Digest::SHA256.hexdigest(api_key)
-      @user = User.find_by(api_key_hash: hashed_key)
-    rescue TypeError
-      render json: ErrorSerializer.new(ErrorMessage.new("Unauthorized", 401)).error, status: :unauthorized
-    end
-  end
 end

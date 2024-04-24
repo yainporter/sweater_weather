@@ -49,7 +49,14 @@ RSpec.describe "Road Trip Requests" do
 
         road_trip_data = JSON.parse(response.body, symbolize_names: true)
 
-        expect(road_trip_data[:errors].first).to eq({:detail=>"Unauthorized", :status=>401})
+        expect(road_trip_data).to eq({
+          errors: [
+            {
+              :detail=>"Unauthorized",
+              :status=>401
+            }
+          ]
+        })
       end
 
       it "returns 401 if api_key is not correct", :vcr do
@@ -66,7 +73,14 @@ RSpec.describe "Road Trip Requests" do
 
         road_trip_data = JSON.parse(response.body, symbolize_names: true)
 
-        expect(road_trip_data[:errors].first).to eq({:detail=>"Invalid API key", :status=>401})
+        expect(road_trip_data).to eq({
+          errors: [
+            {
+              :detail=>"Invalid API key",
+              :status=>401
+            }
+          ]
+        })
       end
     end
   end
