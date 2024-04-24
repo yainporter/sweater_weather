@@ -74,49 +74,4 @@ RSpec.describe OutsideApiService do
       expect(data[:route].keys).to eq(route_keys)
     end
   end
-
-  describe "#yelp_conn" do
-    it "connects to the yelp api with Faraday", :vcr do
-      connection = service.yelp_conn
-      expect(connection).to be_a(Faraday::Connection)
-    end
-  end
-
-  describe "#get_yelp_restaurants" do
-    it "returns data for restaurants based on location and category", :vcr do
-      data = service.get_yelp_restaurants("Pueblo, CO", "italian")
-
-      data_keys = [:businesses, :total, :region]
-      business_keys = [
-                        :id,
-                        :alias,
-                        :name,
-                        :image_url,
-                        :is_closed,
-                        :url,
-                        :review_count,
-                        :categories,
-                        :rating,
-                        :coordinates,
-                        :transactions,
-                        :price,
-                        :location,
-                        :phone,
-                        :display_phone,
-                        :distance,
-                        :attributes]
-
-      expect(data).to be_a(Hash)
-      expect(data.keys).to eq(data_keys)
-      expect(data[:businesses]).to be_an(Array)
-      expect(data[:businesses].count).to eq(20)
-      expect(data[:businesses].first.keys).to eq(business_keys)
-
-      # If I had more time, I'd test with with some method that iterates over the business array and checks that previous review_count is > current
-      expect(data[:businesses].first[:name]).to eq("Brues Alehouse")
-      expect(data[:businesses].first[:review_count]).to eq(566)
-      expect(data[:businesses].second[:name]).to eq("Bingo Burger")
-      expect(data[:businesses].second[:review_count]).to eq(541)
-    end
-  end
 end

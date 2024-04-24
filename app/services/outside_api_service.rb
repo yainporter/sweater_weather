@@ -16,20 +16,6 @@ class OutsideApiService
     end
   end
 
-  def yelp_conn
-    Faraday.new(url: "https://api.yelp.com/") do |faraday|
-      faraday.headers["Authorization"] = "Bearer KS7IFxwWZlVQRR_ryycSwBLyayF-js-3Haeqj6X4tswJ9I_9FbRuhob-1nQNeP6E96gtz1AMCPjOcxtbuoLiMgEUFe_8ouUdBNu4DtgsmzyGmGEfKQoDxnHPHOknZnYx"
-      faraday.headers["Accept"] = "application/json"
-      faraday.request :json
-      faraday.response :json, parser_options: { symbolize_names: true }
-    end
-  end
-
-  def get_yelp_restaurants(location, category)
-    response = yelp_conn.get("/v3/businesses/search?location=#{location}&food=#{category}&sort_by=review_count&limit=20")
-    response.body
-  end
-
   def get_lat_lng(location)
     response = mapquest_conn.get("/geocoding/v1/address?location=#{location}")
     response.body
