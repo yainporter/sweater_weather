@@ -284,7 +284,58 @@
       },
       "/Users/yainporter/turing_work/3mod/projects/sweater_weather/spec/models/user_spec.rb": {
         "lines": [
-
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          9,
+          9,
+          null,
+          null,
+          1,
+          9,
+          null,
+          null
+        ]
+      },
+      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
         ]
       },
       "/Users/yainporter/turing_work/3mod/projects/sweater_weather/spec/poros/current_weather_spec.rb": {
@@ -1166,33 +1217,6 @@
           null
         ]
       },
-      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          9,
-          9,
-          null,
-          null,
-          1,
-          9,
-          null,
-          null
-        ]
-      },
-      "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/yainporter/turing_work/3mod/projects/sweater_weather/app/controllers/api/v0/road_trip_controller.rb": {
         "lines": [
           1,
@@ -1272,20 +1296,20 @@
           null,
           null,
           1,
-          1,
+          0,
           null,
           null,
           1,
-          2,
+          4,
           null,
           null,
           1,
-          1,
+          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1713933612
+    "timestamp": 1713934980
   }
 }

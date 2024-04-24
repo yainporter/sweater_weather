@@ -1,6 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'simplecov'
+require 'shoulda/matchers'
+
 SimpleCov.start
 
 # Previous content of test helper now starts here
@@ -76,5 +78,10 @@ RSpec.configure do |config|
     config.hook_into :webmock
     config.default_cassette_options = { record: :once }
     config.configure_rspec_metadata!
+  end
+
+  RSpec.configure do |config|
+    config.include(Shoulda::Matchers::ActiveModel, type: :model)
+    config.include(Shoulda::Matchers::ActiveRecord, type: :model)
   end
 end
