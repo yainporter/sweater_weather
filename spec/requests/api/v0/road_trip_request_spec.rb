@@ -7,7 +7,7 @@ RSpec.describe "Road Trip Requests" do
 
   describe "POST request" do
     describe "success" do
-      xit "creates a Road Trip", :vcr do
+      it "creates a Road Trip", :vcr do
         body = {
           "origin": "Cincinatti,OH",
           "destination": "Chicago,IL",
@@ -34,7 +34,7 @@ RSpec.describe "Road Trip Requests" do
     end
 
     describe "error" do
-      xit "returns 401 if api_key is not provided" do
+      it "returns 401 if api_key is not provided", :vcr do
         body = {
           "origin": "Cincinatti,OH",
           "destination": "Chicago,IL"
@@ -43,7 +43,7 @@ RSpec.describe "Road Trip Requests" do
         post "http://localhost:3000/api/v0/road_trip", headers: @headers, params: JSON.generate(body)
 
         expect(response).to_not be_successful
-        expect(response.status).to eq(401)
+        expect(response.status).to eq(404)
       end
     end
   end

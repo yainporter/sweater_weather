@@ -4,16 +4,18 @@ RSpec.describe CurrentWeather do
   describe "initialization" do
     it "creates an CurrentWeather poro from the weather API data" do
       data = {
-        last_updated: "2024-04-22 08:45",
-        temp_f: 77.0,
-        condition: {
-          text: "Sunny",
-          icon: "//cdn.weatherapi.com/weather/64x64/day/113.png",
-        },
-        humidity: 19,
-        feelslike_f: 74.8,
-        vis_miles: 9.0,
-        uv: 7.0
+        current: {
+          last_updated: "2024-04-22 08:45",
+          temp_f: 77.0,
+          condition: {
+            text: "Sunny",
+            icon: "//cdn.weatherapi.com/weather/64x64/day/113.png",
+          },
+          humidity: 19,
+          feelslike_f: 74.8,
+          vis_miles: 9.0,
+          uv: 7.0
+        }
       }
 
 
