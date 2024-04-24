@@ -5,7 +5,7 @@ RSpec.describe "Sessions Requests" do
     @headers = {"CONTENT_TYPE" => "application/json", "Accept" => "application/json"}
   end
   describe "POST" do
-    xit "returns 200 on successful request", :vcr do
+    it "returns 200 on successful request", :vcr do
       User.create!({email: "test@test.test", password: "testing", password_confirmation: "testing"})
 
       post "http://localhost:3000/api/v0/sessions", headers: @headers, params: JSON.generate({
@@ -21,7 +21,7 @@ RSpec.describe "Sessions Requests" do
       data_keys = [:id, :type, :attributes]
       attribute_keys = [:email, :api_key]
       expect(data[:data].keys).to eq(data_keys)
-      expect(data[:data][:type]).to eq("users")
+      expect(data[:data][:type]).to eq("user")
       expect(data[:data][:attributes].keys).to eq(attribute_keys)
     end
   end

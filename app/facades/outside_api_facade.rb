@@ -6,7 +6,7 @@ class OutsideApiFacade
     @location = params[:location]
     @origin = params[:origin]
     @destination = params[:destination]
-    @lat_lng = nil
+    @lat_lng = set_lat_lng
     @weather_data = weather_data
   end
 
@@ -37,15 +37,10 @@ class OutsideApiFacade
   end
 
   def weather_data
-    if @lat_lng
-      @weather_data = @service.get_weather(@lat_lng)
-    elsif @location
-      @weather_data = @service.get_weather(@location)
-    end
+    @weather_data = @service.get_weather(@lat_lng)
   end
 
   def create_road_trip
-    set_lat_lng
     RoadTrip.new(road_trip_attributes)
   end
 

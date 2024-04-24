@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_032456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "api_key"
+    t.string "api_key_hash"
+    t.index ["api_key"], name: "index_users_on_api_key", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
