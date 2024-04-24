@@ -33,7 +33,7 @@ RSpec.describe "Users Requests" do
     end
 
     describe "failure" do
-      it "returns 409 when an email already exists", :vcr do
+      it "returns 422 when an email already exists", :vcr do
         User.create!({
           "email": "whatever@example.com",
           "password": "password",

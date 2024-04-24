@@ -11,8 +11,7 @@ RSpec.describe "Sessions Requests" do
 
       post "http://localhost:3000/api/v0/sessions", headers: @headers, params: JSON.generate({
         "email": "test@test.test",
-        "password": "testing",
-        "api_key": "#{api_key}"
+        "password": "testing"
       })
 
       expect(response).to be_successful
@@ -30,13 +29,11 @@ RSpec.describe "Sessions Requests" do
     end
 
     it "returns 400 when email or password is invalid", :vcr do
-      user = User.create!({email: "test@test.test", password: "testing", password_confirmation: "testing"})
-      api_key = user.api_key
+      User.create!({email: "test@test.test", password: "testing", password_confirmation: "testing"})
 
       post "http://localhost:3000/api/v0/sessions", headers: @headers, params: JSON.generate({
         "email": "test@test.test",
-        "password": "help",
-        "api_key": "#{api_key}"
+        "password": "help"
       })
 
       expect(response).to_not be_successful
@@ -48,49 +45,6 @@ RSpec.describe "Sessions Requests" do
         errors: [
           status: 400,
           detail: "Invalid credentials, try again"
-        ]
-      })
-    end
-
-    it "returns 400 when api key is invalid", :vcr do
-      User.create!({email: "test@test.test", password: "testing", password_confirmation: "testing"})
-
-      post "http://localhost:3000/api/v0/sessions", headers: @headers, params: JSON.generate({
-        "email": "test@test.test",
-        "password": "testing",
-        "api_key": "12345"
-      })
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(400)
-
-      response_body = JSON.parse(response.body, symbolize_names: true)
-
-      expect(response_body).to eq({
-        errors: [
-          status: 400,
-          detail: "Invalid parameters, try again."
-        ]
-      })
-    end
-
-    it "returns 401 when api key is missing", :vcr do
-      User.create!({email: "test@test.test", password: "testing", password_confirmation: "testing"})
-
-      post "http://localhost:3000/api/v0/sessions", headers: @headers, params: JSON.generate({
-        "email": "test@test.test",
-        "password": "testing"
-      })
-
-      expect(response).to_not be_successful
-      expect(response.status).to eq(401)
-
-      response_body = JSON.parse(response.body, symbolize_names: true)
-
-      expect(response_body).to eq({
-        errors: [
-          status: 401,
-          detail: "Unauthorized"
         ]
       })
     end

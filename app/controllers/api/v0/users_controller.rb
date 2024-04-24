@@ -12,15 +12,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     params.permit(:email, :password, :password_confirmation)
   end
 
-  def record_not_unique(exception)
-    render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 409)).error, status: :conflict
-  end
-
   def record_invalid(exception)
     render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 422)).error, status: :unprocessable_entity
-  end
-
-  def not_null_violation
-    render json: ErrorSerializer.new(ErrorMessage.new("Validation failed: Email can't be blank", 422)).error, status: :unprocessable_entity
   end
 end

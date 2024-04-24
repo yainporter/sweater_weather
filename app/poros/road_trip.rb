@@ -2,11 +2,16 @@ class RoadTrip
   attr_reader :start_city, :end_city, :travel_time, :weather_at_eta
 
   def initialize(params)
-    @start_city = params[:start_city]
-    @end_city = params[:end_city]
-    @travel_time = params[:travel_time]
-    @weather_at_eta = find_weather_at_eta(params[:weather_at_eta])
-    @arrival_time = time_at_eta
+    begin
+      @start_city = params[:start_city]
+      @end_city = params[:end_city]
+      @travel_time = params[:travel_time]
+      @weather_at_eta = find_weather_at_eta(params[:weather_at_eta])
+      @arrival_time = time_at_eta
+    rescue NoMethodError
+      @travel_time = "Impossible"
+      @weather_at_eta = {}
+    end
   end
 
   def find_weather_at_eta(weather_data)
@@ -34,6 +39,10 @@ class RoadTrip
   end
 
   def travel_time_in_seconds
-    Time.parse(@travel_time).seconds_since_midnight
+    hours = @travel_time.split(":")[0].to_i
+    minutes = @travel_time.split(":")[1].to_i
+    seconds = @travel_time.split(":")[2].to_i
+
+    (hours*3600) + (minutes*60) + seconds
   end
 end
