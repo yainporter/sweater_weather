@@ -7,7 +7,7 @@ class Api::V0::RoadTripController < ApplicationController
       road_trip = facade.create_road_trip
       render json: RoadTripSerializer.new(road_trip), status: :created
     else
-      render json: ErrorSerializer.new(ErrorMessage.new("Invalid API key", 401)), status: :unauthorized
+      render json: ErrorSerializer.new(ErrorMessage.new("Invalid API key", 401)).error, status: :unauthorized
     end
   end
 
@@ -23,7 +23,7 @@ class Api::V0::RoadTripController < ApplicationController
       hashed_key = Digest::SHA256.hexdigest(api_key)
       @user = User.find_by(api_key_hash: hashed_key)
     rescue TypeError
-      render json: { error: 'Unauthorized' }, status: :unauthorized
+      render json: ErrorSerializer.new(ErrorMessage.new("Unauthorized", 401)).error, status: :unauthorized
     end
   end
 end
